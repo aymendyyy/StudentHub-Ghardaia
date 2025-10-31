@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master Coder - Learning Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styel.css" />
+  </head>
+  <body>
+    <div class="background-cockpit">
+      <div class="dashboard-container">
+        <!-- HEADER -->
+        <header class="status-bar">
+          <div>
+            <button class="Login-btn">Login</button>
+            <div class="xp-container">
+              <span class="xp-value">7500/10000 XP</span>
+              <i class="fas fa-star xp-icon-glow"></i>
+              <div class="xp-bar-container">
+                <div class="xp-fill" style="width: 75%"></div>
+              </div>
+              <span class="xp-label">XP</span>
+            </div>
+          </div>
+          <div class="rank-info">
+            <div class="rank-title"></div>
+            <i class="fas fa-microchip icon-glow"></i>
+          </div>
+        </header>
+
+        <!-- MAIN INTERFACE -->
+        <div class="main-interface">
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <nav class="main-nav">
+              <a href="#" class="nav-item active" data-section="courses">
+                <i class="fas fa-book"></i>
+                <span>Courses</span>
+              </a>
+              <a href="#" class="nav-item" data-section="achievements">
+                <i class="fas fa-trophy"></i>
+                <span>Achievements</span>
+              </a>
+              <a href="#" class="nav-item" data-section="inventory">
+                <i class="fas fa-tasks"></i> <span>Home Works</span>
+              </a>
+            </nav>
+
+            <div class="course-section-title">Active Courses</div>
+            <div class="course-list"></div>
+          </aside>
+
+          <!-- MAIN CONTENT -->
+          <main class="main-content">
+            <div class="main-title">
+              <span class="website-titel">StudentHub Ghardaia</span>
+
+              <h2 class="neon-text-h2">SKILL TREE</h2>
+              <h1 class="main-title-h1">Compiler Design</h1>
+            </div>
+
+            <div class="skill-tree-diagram">
+              <div
+                class="chapter-node locked"
+                data-chapter="4"
+                title="Chapter 4 - Locked"
+              >
+                <i class="fas fa-lock"></i>
+                <span class="chapter-label">Chapter 4</span>
+              </div>
+
+              <div class="connector locked-line"></div>
+
+              <div
+                class="chapter-node locked"
+                data-chapter="3"
+                title="Chapter 3 - Locked"
+              >
+                <i class="fas fa-lock"></i>
+                <span class="chapter-label">Chapter 3</span>
+              </div>
+
+              <div class="connector active-line"></div>
+
+              <div
+                class="chapter-node active"
+                data-chapter="2"
+                title="Chapter 2 - In Progress"
+              >
+                <i class="fas fa-sync-alt"></i>
+                <span class="chapter-label">Chapter 2</span>
+              </div>
+
+              <div class="connector completed-line"></div>
+
+              <div
+                class="chapter-node completed"
+                data-chapter="1"
+                title="Chapter 1 - Completed"
+              >
+                <i class="fas fa-check"></i>
+                <span class="chapter-label">Chapter 1</span>
+              </div>
+            </div>
+          </main>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="bottom-control-panel">
+          <div class="buttons-row">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="chapterModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalTitle">Chapter Details</h2>
+          <button
+            class="modal-close"
+            onclick="document.getElementById('chapterModal').classList.remove('show');"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody">Loading chapter details...</div>
+        <div class="modal-footer">
+          <button
+            class="btn"
+            onclick="document.getElementById('chapterModal').classList.remove('show');"
+          >
+            Close
+          </button>
+          <button
+            class="btn btn-primary"
+            onclick="window.alert(' 😅😅اي جااية فطريق شوية وقت برك')"
+          >
+            Start Chapter
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="loginModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Login</h2>
+          <span class="notice"
+            ><i class="fas fa-exclamation-triangle"></i> only for admins
+            <i class="fas fa-exclamation-triangle"></i
+          ></span>
+          <button
+            class="modal-close"
+            onclick="document.getElementById('loginModal').classList.remove('show');"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="Email"
+                ><i class="fa-solid fa-envelope email"></i
+              ></label>
+              <input
+                placeholder="Email"
+                type="email"
+                id="Email"
+                name="Email"
+                required
+              />
+            </div>
+            <div class="login-btn-container">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p style="color: var(--text-secondary)">
+        &copy; 2025 Aymen Daddi — All Rights Reserved.
+      </p>
+      <p style="color: var(--text-secondary)">
+        Contact us:
+        <a
+          style="text-decoration: none; color: var(--text-primary)"
+          href="mailto:daddibabaaymen@gmail.com"
+        >
+          Email</a
+        >
+      </p>
+    </footer>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
